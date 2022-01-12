@@ -18,7 +18,8 @@ Page({
             recid: id,
             loading: true,
         });
-        var type=(fromtype=='song')?'':1;
+        console.log("test id————————————————————————————————",id)
+        var type=(fromtype=='song')?'2':1;
         common.loadrec(app.globalData.cookie,this.data.offset, this.data.limit, id, function (data) {
             that.setData({
                 loading: false,

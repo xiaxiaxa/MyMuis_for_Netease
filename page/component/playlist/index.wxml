@@ -28,7 +28,7 @@
         <text>{{list.playlist.subscribedCount||'收藏'}}</text>
       </view>
       <view>
-        <navigator url="../recommend/index?id={{list.playlist.commentThreadId}}&from=playlist">
+        <navigator url="../recommend/index?id={{list.playlist.id}}&from=playlist">
           <image src="../../../image/cm2_list_detail_icn_cmt@2x.png" />
           <text>{{list.playlist.commentCount||'评论'}}</text>
         </navigator>

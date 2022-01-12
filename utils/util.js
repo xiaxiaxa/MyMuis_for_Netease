@@ -136,10 +136,14 @@ function playAlrc(that, app) {
 };
 //加载评论1为单曲，2歌单类，3专辑,
 function loadrec(cookie, offset, limit, id, cb, type) {
+ console.log("xiawei____________________type=:",type)
   wx.request({
-    url: bsurl + 'comment',
+
+    // url: bsurl + 'comment/music',
+    url: bsurl + (type == 2 ? 'comment/music' : (type == 1 ? 'comment/playlist' : 'comment/playlist')),
     data: {
-      id: (type == 1 ? '' : (type == 3 ? 'A_DJ_1_' : 'R_SO_4_')) + id,
+      // id: (type == 1 ? '' : (type == 3 ? 'A_DJ_1_' : 'R_SO_4_')) + id,
+      id: id,
       limit: limit,
       offset: offset,
       cookie: cookie
@@ -301,9 +305,9 @@ function loadlrc(that) {
 function songheart(that, app, t, d) {
   var music = that.data.music
   wx.request({
-    url: bsurl + 'song/tracks',
+    url: bsurl + 'playlist/tracks',
     data: {
-      id: music.id,
+      pid: music.id,
       r: !d ? '' : 'del',
       op: !t ? 'like' : 'trash',
       cookie: app.globalData.cookie
